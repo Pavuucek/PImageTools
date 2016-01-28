@@ -127,9 +127,9 @@
                   Drop="ListViewFiles_Drop">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="Auto">Soubor</GridViewColumn>
-                    <GridViewColumn Width="Auto">Rozměry</GridViewColumn>
-                    <GridViewColumn Width="Auto">Velikost</GridViewColumn>
+                    <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding FileName}">Soubor</GridViewColumn>
+                    <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding Dimensions}">Rozměry</GridViewColumn>
+                    <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding Size}">Velikost</GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

@@ -50,7 +50,7 @@ using System.Windows;
 //
 // Můžete zadat všechny hodnoty nebo nechat nastavená výchozí čísla sestavení a revize 
 // pomocí zástupného znaku * takto:
-// [assembly: AssemblyVersion("0.0.0.4")]
-[assembly: AssemblyVersion("0.0.0.4")]
-[assembly: AssemblyFileVersion("0.0.0.4")]
-[assembly: AssemblyInformationalVersion("master:0.0.0-4-b94349c")]
+// [assembly: AssemblyVersion("0.0.0.5")]
+[assembly: AssemblyVersion("0.0.0.5")]
+[assembly: AssemblyFileVersion("0.0.0.5")]
+[assembly: AssemblyInformationalVersion("master:0.0.0-5-d2244b2")]
