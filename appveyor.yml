@@ -1,0 +1,16 @@
+version: '{branch}-{build}'
+branches:
+  except:
+  - gh-pages
+install:
+- cmd: git submodule update --init --recursive
+build_script:
+- cmd: build.bat
+artifacts:
+- path: PImageTools_release*.zip
+  name: Release
+- path: PImageTools_debug*.zip
+  name: Debug
+deploy: off
+before_build:
+- cmd: nuget restore
