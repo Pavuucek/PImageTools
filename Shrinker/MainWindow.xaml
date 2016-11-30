@@ -130,6 +130,7 @@
                     <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding FileName}">Soubor</GridViewColumn>
                     <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding Dimensions}">Rozměry</GridViewColumn>
                     <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding Size}">Velikost</GridViewColumn>
+                    <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding Estimate}">Odhad velikosti</GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

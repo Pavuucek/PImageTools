@@ -10,5 +10,6 @@ namespace PImageTools.Shrinker.Helpers
         public string FileName { get; set; }
         public string Dimensions { get; set; }
         public string Size { get; set; }
+        public string Estimate { get; set; }
     }
 }
