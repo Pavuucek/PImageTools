@@ -7,11 +7,11 @@ using System.Windows;
 // Obecné informace o sestavení se řídí přes následující 
 // sadu atributů. Změnou hodnot těchto atributů se upraví informace
 // přidružené k sestavení.
-[assembly: AssemblyTitle("Shrinker")]
+[assembly: AssemblyTitle("Renamer")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Shrinker")]
+[assembly: AssemblyProduct("Renamer")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -50,7 +50,6 @@ using System.Windows;
 //
 // Můžete zadat všechny hodnoty nebo nechat nastavená výchozí čísla sestavení a revize 
 // pomocí zástupného znaku * takto:
-// [assembly: AssemblyVersion("0.0.0.7")]
-[assembly: AssemblyVersion("0.0.0.7")]
-[assembly: AssemblyFileVersion("0.0.0.7")]
-[assembly: AssemblyInformationalVersion("master:0.0.0-7-9b59588")]
+// [assembly: AssemblyVersion("1.0.*")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
