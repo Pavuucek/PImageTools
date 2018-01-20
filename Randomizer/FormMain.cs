@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 
@@ -30,10 +33,13 @@ namespace PImageTools.Randomizer
         private void buttonRandomize_Click(object sender, EventArgs e)
         {
             listBoxOutput.Items.Clear();
-            foreach (var item in listBoxInput.Items)
+            var dotList = new List<string>();
+            for (var i = 0; i < listBoxInput.Items.Count-1; i++)
             {
-                listBoxOutput.Items.Add(".");
+                dotList.Add(".");
             }
+
+            listBoxOutput.Items.AddRange(dotList.ToArray());
             var rnd = new Random();
             for (var i = 0; i < listBoxInput.Items.Count-1; i++)
             {
@@ -44,6 +50,7 @@ namespace PImageTools.Randomizer
                     if ((listBoxOutput.Items[newpos] as string) != ".") continue;
                     listBoxOutput.Items[newpos] = listBoxInput.Items[i];
                     placed = true;
+                    Application.DoEvents();
                 }
 
             }
@@ -67,6 +74,23 @@ namespace PImageTools.Randomizer
             }
 
             return result.ToArray();
+        }
+
+        private void buttonCopy_Click(object sender, EventArgs e)
+        {
+            if (folderBrowserDialogOutput.ShowDialog() == DialogResult.OK)
+            {
+                var padLength = listBoxOutput.Items.Count.ToString().Length;
+                Parallel.For(0, listBoxOutput.Items.Count - 1, i =>
+                {
+                    var destFileName = i.ToString().PadLeft(padLength, '0');
+                    var inputFileName = listBoxOutput.Items[i].ToString();
+                    destFileName = Path.Combine(folderBrowserDialogOutput.SelectedPath, destFileName);
+                    destFileName = string.Concat(destFileName, Path.GetExtension(inputFileName));
+                    File.Copy(listBoxOutput.Items[i].ToString(), destFileName);
+                });
+                MessageBox.Show("a");
+            }
         }
     }
 }

@@ -35,6 +35,8 @@
             this.buttonRandomize = new System.Windows.Forms.Button();
             this.buttonAddFolder = new System.Windows.Forms.Button();
             this.folderBrowserDialogInput = new System.Windows.Forms.FolderBrowserDialog();
+            this.buttonCopy = new System.Windows.Forms.Button();
+            this.folderBrowserDialogOutput = new System.Windows.Forms.FolderBrowserDialog();
             this.SuspendLayout();
             // 
             // listBoxInput
@@ -61,7 +63,7 @@
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(75, 23);
             this.buttonAdd.TabIndex = 2;
-            this.buttonAdd.Text = "button1";
+            this.buttonAdd.Text = "Add Files";
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
@@ -75,7 +77,7 @@
             this.buttonRandomize.Name = "buttonRandomize";
             this.buttonRandomize.Size = new System.Drawing.Size(75, 23);
             this.buttonRandomize.TabIndex = 3;
-            this.buttonRandomize.Text = "button1";
+            this.buttonRandomize.Text = "Randomize";
             this.buttonRandomize.UseVisualStyleBackColor = true;
             this.buttonRandomize.Click += new System.EventHandler(this.buttonRandomize_Click);
             // 
@@ -85,15 +87,26 @@
             this.buttonAddFolder.Name = "buttonAddFolder";
             this.buttonAddFolder.Size = new System.Drawing.Size(75, 23);
             this.buttonAddFolder.TabIndex = 4;
-            this.buttonAddFolder.Text = "button1";
+            this.buttonAddFolder.Text = "Add Folder";
             this.buttonAddFolder.UseVisualStyleBackColor = true;
             this.buttonAddFolder.Click += new System.EventHandler(this.buttonAddFolder_Click);
+            // 
+            // buttonCopy
+            // 
+            this.buttonCopy.Location = new System.Drawing.Point(776, 485);
+            this.buttonCopy.Name = "buttonCopy";
+            this.buttonCopy.Size = new System.Drawing.Size(75, 23);
+            this.buttonCopy.TabIndex = 5;
+            this.buttonCopy.Text = "Copy";
+            this.buttonCopy.UseVisualStyleBackColor = true;
+            this.buttonCopy.Click += new System.EventHandler(this.buttonCopy_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(908, 566);
+            this.Controls.Add(this.buttonCopy);
             this.Controls.Add(this.buttonAddFolder);
             this.Controls.Add(this.buttonRandomize);
             this.Controls.Add(this.buttonAdd);
@@ -116,6 +129,8 @@
         private System.Windows.Forms.Button buttonRandomize;
         private System.Windows.Forms.Button buttonAddFolder;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialogInput;
+        private System.Windows.Forms.Button buttonCopy;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialogOutput;
     }
 }
 
