@@ -26,7 +26,7 @@ namespace PImageTools.Randomizer
         {
             if (openFileDialogInput.ShowDialog() == DialogResult.OK)
             {
-                listBoxInput.Items.AddRange(openFileDialogInput.FileNames);
+                listBoxInput.Items.AddRange(openFileDialogInput.FileNames.ToArray<object>());
             }
         }
 
@@ -39,7 +39,7 @@ namespace PImageTools.Randomizer
                 dotList.Add(".");
             }
 
-            listBoxOutput.Items.AddRange(dotList.ToArray());
+            listBoxOutput.Items.AddRange(dotList.ToArray<object>());
             var rnd = new Random();
             for (var i = 0; i < listBoxInput.Items.Count-1; i++)
             {
@@ -73,7 +73,7 @@ namespace PImageTools.Randomizer
                 result.AddRange(Directory.GetFiles(path, pattern, SearchOption.AllDirectories));
             }
 
-            return result.ToArray();
+            return result.ToArray<object>();
         }
 
         private void buttonCopy_Click(object sender, EventArgs e)
@@ -90,6 +90,17 @@ namespace PImageTools.Randomizer
                     File.Copy(listBoxOutput.Items[i].ToString(), destFileName);
                 });
                 MessageBox.Show("a");
+            }
+        }
+
+        private void toolStripMenuItemDelete_Click(object sender, EventArgs e)
+        {
+            var source = ((sender as ToolStripMenuItem)?.Owner as ContextMenuStrip)?.SourceControl as ListBox;
+            if (source == null) return;
+            if (source.SelectedItems.Count < 1) return;
+            for (var i = source.SelectedItems.Count - 1; i  >= 0; i--)
+            {
+                source.Items.Remove(source.SelectedItems[i]);
             }
         }
     }
