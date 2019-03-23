@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.listBoxInput = new System.Windows.Forms.ListBox();
+            this.contextMenuStripDelete = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.listBoxOutput = new System.Windows.Forms.ListBox();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.openFileDialogInput = new System.Windows.Forms.OpenFileDialog();
@@ -38,8 +40,7 @@
             this.folderBrowserDialogInput = new System.Windows.Forms.FolderBrowserDialog();
             this.buttonCopy = new System.Windows.Forms.Button();
             this.folderBrowserDialogOutput = new System.Windows.Forms.FolderBrowserDialog();
-            this.contextMenuStripDelete = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonSortInput = new System.Windows.Forms.Button();
             this.contextMenuStripDelete.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,9 +51,23 @@
             this.listBoxInput.HorizontalScrollbar = true;
             this.listBoxInput.Location = new System.Drawing.Point(12, 12);
             this.listBoxInput.Name = "listBoxInput";
-            this.listBoxInput.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.listBoxInput.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listBoxInput.Size = new System.Drawing.Size(329, 537);
             this.listBoxInput.TabIndex = 0;
+            // 
+            // contextMenuStripDelete
+            // 
+            this.contextMenuStripDelete.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemDelete});
+            this.contextMenuStripDelete.Name = "contextMenuStripDelete";
+            this.contextMenuStripDelete.Size = new System.Drawing.Size(108, 26);
+            // 
+            // toolStripMenuItemDelete
+            // 
+            this.toolStripMenuItemDelete.Name = "toolStripMenuItemDelete";
+            this.toolStripMenuItemDelete.Size = new System.Drawing.Size(107, 22);
+            this.toolStripMenuItemDelete.Text = "Delete";
+            this.toolStripMenuItemDelete.Click += new System.EventHandler(this.toolStripMenuItemDelete_Click);
             // 
             // listBoxOutput
             // 
@@ -61,7 +76,7 @@
             this.listBoxOutput.HorizontalScrollbar = true;
             this.listBoxOutput.Location = new System.Drawing.Point(347, 12);
             this.listBoxOutput.Name = "listBoxOutput";
-            this.listBoxOutput.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.listBoxOutput.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listBoxOutput.Size = new System.Drawing.Size(329, 537);
             this.listBoxOutput.TabIndex = 1;
             // 
@@ -109,25 +124,22 @@
             this.buttonCopy.UseVisualStyleBackColor = true;
             this.buttonCopy.Click += new System.EventHandler(this.buttonCopy_Click);
             // 
-            // contextMenuStripDelete
+            // buttonSortInput
             // 
-            this.contextMenuStripDelete.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemDelete});
-            this.contextMenuStripDelete.Name = "contextMenuStripDelete";
-            this.contextMenuStripDelete.Size = new System.Drawing.Size(108, 26);
-            // 
-            // toolStripMenuItemDelete
-            // 
-            this.toolStripMenuItemDelete.Name = "toolStripMenuItemDelete";
-            this.toolStripMenuItemDelete.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItemDelete.Text = "Delete";
-            this.toolStripMenuItemDelete.Click += new System.EventHandler(this.toolStripMenuItemDelete_Click);
+            this.buttonSortInput.Location = new System.Drawing.Point(683, 456);
+            this.buttonSortInput.Name = "buttonSortInput";
+            this.buttonSortInput.Size = new System.Drawing.Size(75, 23);
+            this.buttonSortInput.TabIndex = 6;
+            this.buttonSortInput.Text = "Sort Input";
+            this.buttonSortInput.UseVisualStyleBackColor = true;
+            this.buttonSortInput.Click += new System.EventHandler(this.buttonSortInput_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(908, 566);
+            this.Controls.Add(this.buttonSortInput);
             this.Controls.Add(this.buttonCopy);
             this.Controls.Add(this.buttonAddFolder);
             this.Controls.Add(this.buttonRandomize);
@@ -156,6 +168,7 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialogOutput;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripDelete;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemDelete;
+        private System.Windows.Forms.Button buttonSortInput;
     }
 }
 

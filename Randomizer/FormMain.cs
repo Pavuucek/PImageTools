@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 
 namespace PImageTools.Randomizer
 {
     public partial class FormMain : Form
     {
-        private const string SupportedFormats="*.jpg,*.png";
+        private const string SupportedFormats = "*.jpg;*.jpeg;*.png;*.gif;*.bmp;*.wmf";
+
+        private const string SupportedFormatsMask =
+            "Image Files (*.jpg;*.jpeg;*.png;*.gif;*.bmp;*.wmf)|*.jpg;*.jpeg;*.png;*.gif;*.bmp;*.wmf|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|PNG (*.png)|*.png|GIF (*.gif)|*.gif|Bitmaps (*.bmp;*.wmf)|*.bmp;*.wmf|All files(*.*)|*.*";
+
         public FormMain()
         {
             InitializeComponent();
@@ -24,54 +26,45 @@ namespace PImageTools.Randomizer
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
+            openFileDialogInput.Filter = SupportedFormatsMask;
             if (openFileDialogInput.ShowDialog() == DialogResult.OK)
-            {
                 listBoxInput.Items.AddRange(openFileDialogInput.FileNames.ToArray<object>());
-            }
         }
 
         private void buttonRandomize_Click(object sender, EventArgs e)
         {
             listBoxOutput.Items.Clear();
             var dotList = new List<string>();
-            for (var i = 0; i < listBoxInput.Items.Count-1; i++)
-            {
-                dotList.Add(".");
-            }
+            for (var i = 0; i < listBoxInput.Items.Count - 1; i++) dotList.Add(".");
 
             listBoxOutput.Items.AddRange(dotList.ToArray<object>());
             var rnd = new Random();
-            for (var i = 0; i < listBoxInput.Items.Count-1; i++)
+            for (var i = 0; i < listBoxInput.Items.Count - 1; i++)
             {
                 var placed = false;
-                while (placed==false)
+                while (placed == false)
                 {
                     var newpos = rnd.Next(0, listBoxInput.Items.Count - 1);
-                    if ((listBoxOutput.Items[newpos] as string) != ".") continue;
+                    if (listBoxOutput.Items[newpos] as string != ".") continue;
                     listBoxOutput.Items[newpos] = listBoxInput.Items[i];
                     placed = true;
                     Application.DoEvents();
                 }
-
             }
         }
 
         private void buttonAddFolder_Click(object sender, EventArgs e)
         {
             if (folderBrowserDialogInput.ShowDialog() == DialogResult.OK)
-            {
                 listBoxInput.Items.AddRange(GetFiles(folderBrowserDialogInput.SelectedPath, SupportedFormats));
-            }
         }
 
         private static object[] GetFiles(string path, string searchPattern)
         {
-            var patterns = searchPattern.Split(',');
+            var patterns = searchPattern.Split(';');
             var result = new List<string>();
             foreach (var pattern in patterns)
-            {
                 result.AddRange(Directory.GetFiles(path, pattern, SearchOption.AllDirectories));
-            }
 
             return result.ToArray<object>();
         }
@@ -98,10 +91,13 @@ namespace PImageTools.Randomizer
             var source = ((sender as ToolStripMenuItem)?.Owner as ContextMenuStrip)?.SourceControl as ListBox;
             if (source == null) return;
             if (source.SelectedItems.Count < 1) return;
-            for (var i = source.SelectedItems.Count - 1; i  >= 0; i--)
-            {
-                source.Items.Remove(source.SelectedItems[i]);
-            }
+            for (var i = source.SelectedItems.Count - 1; i >= 0; i--) source.Items.Remove(source.SelectedItems[i]);
+        }
+
+        private void buttonSortInput_Click(object sender, EventArgs e)
+        {
+            listBoxInput.Sorted = true;
+            listBoxInput.Sorted = false;
         }
     }
 }
