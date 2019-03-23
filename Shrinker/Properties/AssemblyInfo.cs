@@ -50,7 +50,7 @@ using System.Windows;
 //
 // Můžete zadat všechny hodnoty nebo nechat nastavená výchozí čísla sestavení a revize 
 // pomocí zástupného znaku * takto:
-// [assembly: AssemblyVersion("0.0.0.7")]
-[assembly: AssemblyVersion("0.0.0.7")]
-[assembly: AssemblyFileVersion("0.0.0.7")]
-[assembly: AssemblyInformationalVersion("master:0.0.0-7-9b59588")]
+// [assembly: AssemblyVersion("0.0.0.12")]
+[assembly: AssemblyVersion("0.0.0.12")]
+[assembly: AssemblyFileVersion("0.0.0.12")]
+[assembly: AssemblyInformationalVersion("Shrinker_CLI:0.0.0-12-6b90c7b")]
