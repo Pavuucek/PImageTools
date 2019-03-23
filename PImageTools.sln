@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Renamer", "Renamer\Renamer.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Randomizer", "Randomizer\Randomizer.csproj", "{9782FEBA-7755-4B03-96A6-12EE50D004D5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShrinkerCLI", "ShrinkerCLI\ShrinkerCLI.csproj", "{5756D5CF-4528-4F57-851C-0AC506800425}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{9782FEBA-7755-4B03-96A6-12EE50D004D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9782FEBA-7755-4B03-96A6-12EE50D004D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9782FEBA-7755-4B03-96A6-12EE50D004D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5756D5CF-4528-4F57-851C-0AC506800425}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5756D5CF-4528-4F57-851C-0AC506800425}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5756D5CF-4528-4F57-851C-0AC506800425}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5756D5CF-4528-4F57-851C-0AC506800425}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
